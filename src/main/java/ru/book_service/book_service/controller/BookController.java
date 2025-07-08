@@ -36,11 +36,12 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Book> updateBook(@RequestBody Book book) {
+    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book book) {
+        book.setId(id);
         if (!bookService.update(book)) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.status(HttpStatus.OK).body(book);
     }
 
     @DeleteMapping("/{id}")

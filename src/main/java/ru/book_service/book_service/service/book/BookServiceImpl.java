@@ -32,11 +32,16 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public boolean update(Book book) {
-        return bookRepository.updateBookById(book.getId(), book);
+        return bookRepository.updateBookById(
+                book.getId(),
+                book.getTitle(),
+                book.getAuthor(),
+                book.getYear(),
+                book.getGenre()) > 0;
     }
 
     @Override
     public boolean deleteById(Long id) {
-        return bookRepository.deleteBookById(id);
+        return bookRepository.deleteBookById(id) > 0;
     }
 }
