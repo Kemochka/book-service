@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: kemochka
+      changes:
+        - sqlFile:
+            path: scripts/001_ddl_create_authors_table.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 2
+      author: kemochka
+      changes:
+        - sqlFile:
+            path: scripts/002_ddl_create_books_table.sql
+            relativeToChangelogFile: true
